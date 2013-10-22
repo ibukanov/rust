@@ -235,37 +235,37 @@ pub type socklen_t = c_int;
 #[cfg(target_os = "android")]
 #[cfg(target_os = "linux")]
 pub struct addrinfo {
-    priv ai_flags: c_int,
-    priv ai_family: c_int,
-    priv ai_socktype: c_int,
-    priv ai_protocol: c_int,
-    priv ai_addrlen: socklen_t,
+    ai_flags: c_int,
+    ai_family: c_int,
+    ai_socktype: c_int,
+    ai_protocol: c_int,
+    ai_addrlen: socklen_t,
     ai_addr: *sockaddr,
-    priv ai_canonname: *char,
+    ai_canonname: *char,
     ai_next: *addrinfo
 }
 
 #[cfg(target_os = "macos")]
 #[cfg(target_os = "freebsd")]
 pub struct addrinfo {
-    priv ai_flags: c_int,
-    priv ai_family: c_int,
-    priv ai_socktype: c_int,
-    priv ai_protocol: c_int,
-    priv ai_addrlen: socklen_t,
-    priv ai_canonname: *char,
+    ai_flags: c_int,
+    ai_family: c_int,
+    ai_socktype: c_int,
+    ai_protocol: c_int,
+    ai_addrlen: socklen_t,
+    ai_canonname: *char,
     ai_addr: *sockaddr,
     ai_next: *addrinfo
 }
 
 #[cfg(windows)]
 pub struct addrinfo {
-    priv ai_flags: c_int,
-    priv ai_family: c_int,
-    priv ai_socktype: c_int,
-    priv ai_protocol: c_int,
-    priv ai_addrlen: size_t,
-    priv ai_canonname: *char,
+    ai_flags: c_int,
+    ai_family: c_int,
+    ai_socktype: c_int,
+    ai_protocol: c_int,
+    ai_addrlen: size_t,
+    ai_canonname: *char,
     ai_addr: *sockaddr,
     ai_next: *addrinfo
 }

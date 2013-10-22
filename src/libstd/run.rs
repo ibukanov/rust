@@ -219,16 +219,20 @@ impl Process {
         let (p, ch) = stream();
         let ch = SharedChan::new(ch);
         let ch_clone = ch.clone();
-        do task::spawn_sched(task::SingleThreaded) {
-            match error.take() {
-                Some(ref mut e) => ch.send((2, e.read_to_end())),
-                None => ch.send((2, ~[]))
+        do task::spawn {
+            do io::ignore_io_error {
+                match error.take() {
+                    Some(ref mut e) => ch.send((2, e.read_to_end())),
+                    None => ch.send((2, ~[]))
+                }
             }
         }
-        do task::spawn_sched(task::SingleThreaded) {
-            match output.take() {
-                Some(ref mut e) => ch_clone.send((1, e.read_to_end())),
-                None => ch_clone.send((1, ~[]))
+        do task::spawn {
+            do io::ignore_io_error {
+                match output.take() {
+                    Some(ref mut e) => ch_clone.send((1, e.read_to_end())),
+                    None => ch_clone.send((1, ~[]))
+                }
             }
         }
 
