@@ -79,7 +79,6 @@ pub use tuple::{ImmutableTuple10, ImmutableTuple11, ImmutableTuple12};
 pub use vec::{Vector, VectorVector, CopyableVector, ImmutableVector};
 pub use vec::{ImmutableEqVector, ImmutableTotalOrdVector, ImmutableCopyableVector};
 pub use vec::{OwnedVector, OwnedCopyableVector,OwnedEqVector, MutableVector};
-pub use io::{Reader, ReaderUtil, Writer, WriterUtil};
 pub use default::Default;
 
 // Reexported runtime types
